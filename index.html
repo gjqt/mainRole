@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>2048古剑版</title>
+
+  <link href="stylesheets/main.css" rel="stylesheet" type="text/css">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="meta/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
+
+  <meta property="og:title" content="2048 game"/>
+  <meta property="og:site_name" content="2048 game"/>		
+</head>
+<body>
+
+  <div class="container">
+    <strong class="important">注:</strong> 原作2048地址<a href="http://gabrielecirulli.github.io/2048">http://gabrielecirulli.github.io/2048</a> <br>
+    作者<a href="http://gabrielecirulli.com" target="_blank">Gabriele Cirulli.</a>
+    本版本是2048改编版。如果觉得游戏不错，你可以去原作者页面进行捐助。<br><br>
+    <p>古剑奇谭一版：<a href="http://gjqt.github.io">http://gjqt.github.io</a></p>
+    <p>古剑奇谭二版：<a href="http://gjqt2.github.io">http://gjqt2.github.io</a></p>
+    <p>古剑奇谭武器版：<a href="http://bjdc.github.io">http://bjdc.github.io</a></p>
+    <hr>
+    <div class="heading">
+      <h2 class="title">2048之古剑奇谭历代主要角色</h2>
+      <div class="scores-container">
+        <div class="score-container">0</div>
+        <div class="best-container">0</div>
+      </div>
+    </div>
+    <p class="game-intro">通过操作<strong>↑，↓，←，→（手机浏览器直接触摸屏滑动）</strong>按键，合并相同人物，出现新人物，努力找出所有角色，通关古剑奇谭吧！</p>
+    <div class="game-container">
+      <div class="game-message">
+        
+        <div class="lower">
+          <a class="retry-button">再来一次</a>
+          <div class="score-sharing"></div>
+        </div>
+      </div>
+
+      <div class="grid-container">
+        <div class="grid-row">
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+        </div>
+        <div class="grid-row">
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+        </div>
+        <div class="grid-row">
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+        </div>
+        <div class="grid-row">
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+        </div>
+        <div class="grid-row">
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          </div>
+      </div>
+      <div class="tile-container">
+      </div>
+    </div>
+    <br>
+    <p>有问题或者有意见和建议可以联系 <a href="http://weibo.com/bjdc" target="_blank">拔剑断愁</a></p>
+  </div>
+
+  <script src="javascripts/animframe_polyfill.js"></script>
+  <script src="javascripts/keyboard_input_manager.js"></script>
+  <script src="javascripts/html_actuator.js"></script>
+  <script src="javascripts/grid.js"></script>
+  <script src="javascripts/tile.js"></script>
+  <script src="javascripts/local_score_manager.js"></script>
+  <script src="javascripts/game_manager.js"></script>
+  <script src="javascripts/application.js"></script>
+  
+</body>
+</html>
