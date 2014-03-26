@@ -166,8 +166,6 @@ HTMLActuator.prototype.message = function (won) {
   mytxt[12]="谢衣哥哥，我们不走了吗？";
   mytxt[13]="想见阿夜，先打败我！";
 
-
-
   var text3 = function (m) { var r = 0; while (m > 1) r++, m >>= 1; return r; }
   var type    = won ? "game-won" : "game-over";
   var message = won ? "恭喜通关<strong>古剑奇谭！</strong>" : mytxt[text3(maxscore)-3];
