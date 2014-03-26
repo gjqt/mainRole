@@ -158,8 +158,8 @@ HTMLActuator.prototype.message = function (won) {
   mytxt[4]="诗万卷，酒千觞……";
   mytxt[5]="随为师回山去吧！";
   mytxt[6]="竟连一代都没能通关！";
-  mytxt[7]="无异因破坏家中花盆被他娘锁在家中……";
-  mytxt[8]="师父……";
+  mytxt[7]="无异因破坏家中花盆被傅清姣锁在家中……";
+  mytxt[8]="师父,小羽一定要找到你……";
   mytxt[9]="我要……通天之器……";
   mytxt[10]="小子，不准再用晗光！";
   mytxt[11]="西域之行，去不成了吗？";
@@ -191,17 +191,11 @@ HTMLActuator.prototype.clearMessage = function () {
 };
 
 HTMLActuator.prototype.scoreTweetButton = function () {
+  var text = "我在2048古剑版中得了" + this.score + "分 , 你能得多少分？";
   var tweet = document.createElement("a");
   tweet.classList.add("twitter-share-button");
-  tweet.setAttribute("href", "http://service.weibo.com/share/share.php");
-  tweet.setAttribute("data-via", " ");
-  tweet.setAttribute("data-url", "http://gjqt.github.io/mainRole");
-  tweet.setAttribute("data-counturl", "http://gjqt.github.io/mainRole");
-  tweet.textContent = " ";
-
-  var text = "I scored " + this.score + " points at 2048古剑版, a game where you " +
-             "join numbers to score high! #2048古剑版";
-  tweet.setAttribute("data-text", text);
+  tweet.setAttribute("href", "http://service.weibo.com/share/share.php?url=http://gjqt.github.io/mainRole&title="+text); 
+  tweet.textContent = "分享到微博"; 
 
   return tweet;
 };
