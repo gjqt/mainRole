@@ -162,13 +162,13 @@ HTMLActuator.prototype.message = function (won) {
   mytxt[8]="师父,小羽一定要找到你……";
   mytxt[9]="我要……通天之器……";
   mytxt[10]="小子，不准再用晗光！";
-  mytxt[11]="西域之行，去不成了吗？";
+  mytxt[11]="百年前的西域之行，到底有何秘密？";
   mytxt[12]="谢衣哥哥，我们不走了吗？";
   mytxt[13]="想见阿夜，先打败我！";
 
   var text3 = function (m) { var r = 0; while (m > 1) r++, m >>= 1; return r; }
   var type    = won ? "game-won" : "game-over";
-  var message = won ? "恭喜通关<strong>古剑奇谭！</strong>" : mytxt[text3(maxscore)-3];
+  var message = won ? "恭喜通关！" : mytxt[text3(maxscore)-3];
 
   if (typeof ga !== "undefined") {
     ga("send", "event", "game", "end", type, this.score);
