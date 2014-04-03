@@ -64,11 +64,11 @@ GameManager.prototype.addRandomTile = function () {
   if (this.grid.cellsAvailable()) {
     var ran = Math.random();
     var value = 2;
-	if(ran < 0.875)
+	if(ran < 0.89)
 	{
 		value = 2;
 	}
-	else if(ran < 0.975)
+	else if(ran < 0.99)
 	{
 		value = 4;
 	}
