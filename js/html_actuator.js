@@ -191,7 +191,7 @@ HTMLActuator.prototype.clearMessage = function () {
 };
 
 HTMLActuator.prototype.scoreTweetButton = function () {
-  var text = "我在2048古二版中得了" + this.score + "分 , 你能得多少分？";
+  var text = "我在2048古剑主角版中得了" + this.score + "分 , 你能得多少分？";
   var tweet = document.createElement("a");
   tweet.classList.add("twitter-share-button");
   tweet.setAttribute("href", "http://service.weibo.com/share/share.php?url=http://bjdc.github.io/egg&title="+text); 
