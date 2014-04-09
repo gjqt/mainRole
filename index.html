@@ -1,41 +1,47 @@
-﻿<!DOCTYPE html>
-<html>
+
+<!DOCTYPE html>
+<html lang="en" manifest="cache.appcache">
 <head>
   <meta charset="utf-8">
-  <title>2048古剑版</title>
+  <title>2048之古剑奇谭</title>
 
-  <link href="stylesheets/main.css" rel="stylesheet" type="text/css">
-  <link rel="shortcut icon" href="favicon.ico">
-  <link rel="apple-touch-icon" href="meta/apple-touch-icon.png">
+  <link href="style/main.css" rel="stylesheet" type="text/css">
   <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="format-detection" content="telephone=no" />
 
   <meta property="og:title" content="2048 game"/>
-  <meta property="og:site_name" content="2048 game"/>		
+  <meta property="og:site_name" content="2048 game"/>
+ 
 </head>
 <body>
-
   <div class="container">
-	<p><strong>全新玩法上线：</strong>每次出现的角色不再只是最百里屠苏或方兰生，有机率出现当前最新角色！</p>
-	<p><strong>安卓版</strong>下载地址：</p>
-	<a href="http://vdisk.weibo.com/s/vqWG6vgnsT27">http://vdisk.weibo.com/s/vqWG6vgnsT27</a>
+	<p style="color:#A20000";>本次更新：新增<strong>自动存档</strong>功能。</p>
+	<p>最新<strong>安卓版</strong>下载地址：</p>
+	<a href="http://vdisk.weibo.com/s/vqWG6vgngbkC">http://vdisk.weibo.com/s/vqWG6vgngbkC</a>
 	<hr>
-    <p>本版本是根据游戏中人物正式出场（与主角群见面）顺序排列的，包括一代和二代的所有主角及部分重要配角。</p>
     <div class="heading">
-      <h2 class="title">2048古剑版之历代主要角色</h2>
+      <h1 class="title">2048古剑主角版</h1>
+	  <br><br>
       <div class="scores-container">
         <div class="score-container">0</div>
         <div class="best-container">0</div>
       </div>
     </div>
-    <p class="game-intro">通过操作<strong>↑，↓，←，→（手机浏览器直接触摸屏滑动）</strong>按键，合并相同人物，出现新人物，努力找出所有角色，通关古剑奇谭吧！</p>
+	<br>
+    <div class="above-game">
+      <a class="restart-button">重新开始</a>
+    </div>
+
     <div class="game-container">
       <div class="game-message">
-        <p style="color:#8e5252"></p>
-        <div class="lower">
+        <p></p>
+		<br>
+        <div class="lower">	        
           <a class="retry-button">卷土重来</a>
           <div class="score-sharing"></div>
         </div>
@@ -76,36 +82,38 @@
           <div class="grid-cell"></div>
           <div class="grid-cell"></div>
           <div class="grid-cell"></div>
-          </div>
+        </div>
       </div>
+
       <div class="tile-container">
+
       </div>
     </div>
-    <br>
-	<br>
-	<p>其他版本：</p>
-	<p>古剑奇谭一版：<a href="http://gjqt.github.io">http://gjqt.github.io</a></p>
-	<p style="color:#A20000";>古剑奇谭一BOSS版场景模式（含有大量图片，爪机流量党慎入）：<a href="http://gjqt.github.io/bg">http://gjqt.github.io/bg</a></p>
-    <p>古剑奇谭二版：<a href="http://gjqt2.github.io">http://gjqt2.github.io</a></p>
-    <p>古剑奇谭武器版：<a href="http://bjdc.github.io">http://bjdc.github.io</a></p>
-	<p style="color:#A20000";><strong>苏雪特别版：</strong><br><a href="http://gjqt.github.io/suxue">http://gjqt.github.io/suxue</a></p>
-	<br>
-	<strong class="important">注:</strong> 原作2048地址<a href="http://gabrielecirulli.github.io/2048">http://gabrielecirulli.github.io/2048</a> <br>
-    作者<a href="http://gabrielecirulli.com" target="_blank">Gabriele Cirulli.</a>
-    本版本是2048改编版。如果觉得游戏不错，你可以去原作者页面进行捐助。<br>
-   
+
+    <p class="game-explanation">
+      <strong class="important">规则:</strong> 使用 <strong>上下左右键</strong> 移动方块（触屏设备请直接滑动手指），相同的两个角色合并后会变成新的角色。
+    </p>
     <hr>
-    <p>有问题或者有意见和建议可以联系 <a href="http://weibo.com/bjdc" target="_blank">拔剑断愁</a></p>
+	<p>其他版本：</p>	
+	<p style="color:#A20000";><strong>苏雪篇：</strong><a href="http://gjqt.github.io/suxue">http://gjqt.github.io/suxue</a></p>
+	<p>古剑奇谭一篇：<a href="http://gjqt.github.io/bg">http://gjqt.github.io/bg</a></p>
+	<p>古剑奇谭二篇：<a href="http://gjqt2.github.io">http://gjqt2.github.io</a></p>
+    <p>百里屠苏武器篇：<a href="http://bjdc.github.io">http://bjdc.github.io</a></p>
+    <hr>
+    <p>
+    有问题或建议可以联系 <a href="http://weibo.com/bjdc" target="_blank">拔剑断愁</a></p>
   </div>
 
-  <script src="javascripts/animframe_polyfill.js"></script>
-  <script src="javascripts/keyboard_input_manager.js"></script>
-  <script src="javascripts/html_actuator.js"></script>
-  <script src="javascripts/grid.js"></script>
-  <script src="javascripts/tile.js"></script>
-  <script src="javascripts/local_score_manager.js"></script>
-  <script src="javascripts/game_manager.js"></script>
-  <script src="javascripts/application.js"></script>
+  <script src="js/bind_polyfill.js"></script>
+  <script src="js/classlist_polyfill.js"></script>
+  <script src="js/animframe_polyfill.js"></script>
+  <script src="js/keyboard_input_manager.js"></script>
+  <script src="js/html_actuator.js"></script>
+  <script src="js/grid.js"></script>
+  <script src="js/tile.js"></script>
+  <script src="js/local_storage_manager.js"></script>
+  <script src="js/game_manager.js"></script>
+  <script src="js/application.js"></script>
   
 </body>
 </html>
