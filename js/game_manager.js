@@ -1,4 +1,18 @@
-var maxscore = 2;
+﻿var maxValue = 2;
+var pause = false;
+var nandu = 1;
+
+function nanduChoose(model) {
+    var mainDiv = document.getElementById("mainDiv");
+    mainDiv.style.display = "block";
+    var nanduDiv = document.getElementById("nanduChoose");
+    nanduDiv.style.display = "none";
+	nandu = model;
+	window.localStorage.setItem("nandu", nandu);
+	
+    pause = false;
+	location.reload();
+}
 
 function GameManager(size, InputManager, Actuator, StorageManager) {
   this.size           = size; // Size of the grid
@@ -10,21 +24,42 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
 
   this.inputManager.on("move", this.move.bind(this));
   this.inputManager.on("restart", this.restart.bind(this));
+  
+  if (window.localStorage.hasOwnProperty("maxValue")) {
+	maxValue = window.localStorage.getItem("maxValue");
+  }
+  
+  if (window.localStorage.hasOwnProperty("nandu")) {
+	nandu = window.localStorage.getItem("nandu");
+  }
+  else {
+	this.pause();
+  }
 
   this.setup();
 }
 
 // Restart the game
 GameManager.prototype.restart = function () {
-  maxscore = 2;
+  maxValue = 2;
+  window.localStorage.setItem("maxValue", 2); 
+  this.pause();
   this.storageManager.clearGameState();
   this.actuator.continueGame(); // Clear the game won/lost message
   this.setup(); 
 };
 
+GameManager.prototype.pause = function () {
+    var mainDiv = document.getElementById("mainDiv");
+    mainDiv.style.display = "none";
+    var nanduDiv = document.getElementById("nanduChoose");
+    nanduDiv.style.display = "block";
+    pause = true;
+};
+
 // Return true if the game is lost, or has won and the user hasn't kept playing
 GameManager.prototype.isGameTerminated = function () {
-  if (this.over || (this.won && !this.keepPlaying)) {
+  if (pause || this.over || (this.won && !this.keepPlaying)) {
     return true;
   } else {
     return false;
@@ -33,6 +68,12 @@ GameManager.prototype.isGameTerminated = function () {
 
 // Set up the game
 GameManager.prototype.setup = function () {
+  var currentNanDu = document.getElementById("nandu");
+  if (nandu == 1)
+	currentNanDu.innerHTML = "【简单模式】";
+  else
+	currentNanDu.innerHTML = "【困难模式】";
+	
   var previousState = this.storageManager.getGameState();
 
   // Reload the game from a previous game if present
@@ -70,12 +111,20 @@ GameManager.prototype.addRandomTile = function () {
   if (this.grid.cellsAvailable()) {
 	var ran = Math.random();
     var value = 2;
-	if (ran < 0.8985)
-		value = 2;
-	else if(ran < 0.998)
-		value = 4;
-	else
-		value = maxscore;
+	if (nandu == 1) {
+		if (ran < 0.898)
+			value = 2;
+		else if(ran < 0.998)
+			value = 4;
+		else
+			value = maxValue;
+	}
+	else {
+		if (ran < 0.9)
+			value = 2;
+		else
+			value = 4;
+	}
     
     var tile = new Tile(this.grid.randomAvailableCell(), value);
 
@@ -174,9 +223,10 @@ GameManager.prototype.move = function (direction) {
           // Update the score
           self.score += merged.value;
 
-		  if (merged.value > maxscore) {
-            maxscore = merged.value;
-		  }
+	  if (merged.value > maxValue) {
+            maxValue = merged.value;
+            window.localStorage.setItem("maxValue", maxValue);
+	  }
 		  
           // The mighty 2048 tile
           if (merged.value === 131072) self.won = true;

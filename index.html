@@ -19,8 +19,15 @@
  
 </head>
 <body>
-  <div class="container">
-	<p style="color:#A20000";>本次更新：新增<strong>自动存档</strong>功能。</p>
+  <div class="game-nandu" id="nanduChoose">
+    <p>请选择游戏难度：</p><br />
+    <input id="easy" type="button" value="简单模式" onclick="nanduChoose(1)"/>
+      <br /><br />
+    <input id="hard" type="button" value="困难模式" onclick="nanduChoose(2)"/>
+  </div>
+  <div class="container" id="mainDiv" >
+	<p style="color:#A20000";>本次更新：新增<strong>难度选择</strong>功能。</p>
+	<p>◎本版本全程自动存档。</p>
 	<p>最新<strong>安卓版</strong>下载地址：</p>
 	<a href="http://vdisk.weibo.com/s/vqWG6vgngbkC">http://vdisk.weibo.com/s/vqWG6vgngbkC</a>
 	<hr>
@@ -32,7 +39,7 @@
         <div class="best-container">0</div>
       </div>
     </div>
-	<br>
+	<p style="font-weight:bold;" id="nandu"></p>
     <div class="above-game">
       <a class="restart-button">重新开始</a>
     </div>
