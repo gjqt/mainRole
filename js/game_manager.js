@@ -25,8 +25,8 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
 	maxValue = window.localStorage.getItem("maxValue");
   }
   
-  if (window.localStorage.hasOwnProperty("nandu")) {
-	nandu = window.localStorage.getItem("nandu");
+  if (window.localStorage.hasOwnProperty("nandu_mr")) {
+	nandu = window.localStorage.getItem("nandu_mr");
   }
   else {
 	gamePause();
@@ -55,7 +55,7 @@ GameManager.prototype.nanduChoose = function (model) {
     var nanduDiv = document.getElementById("nanduChoose");
     nanduDiv.style.display = "none";
     nandu = model;
-    window.localStorage.setItem("nandu", nandu);
+    window.localStorage.setItem("nandu_mr", nandu);
     pause = false;
     this.storageManager.clearGameState();
     this.setup(); 
