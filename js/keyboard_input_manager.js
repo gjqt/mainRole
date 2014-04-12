@@ -74,6 +74,8 @@ KeyboardInputManager.prototype.listen = function () {
   // Respond to button presses
   this.bindButtonPress(".retry-button", this.restart);
   this.bindButtonPress(".restart-button", this.restart);
+  this.bindButtonPress(".easy", this.easyChoosed);
+  this.bindButtonPress(".hard", this.hardChoosed);
 
   // Respond to swipe events
   var touchStartClientX, touchStartClientY;
@@ -134,6 +136,16 @@ KeyboardInputManager.prototype.listen = function () {
 KeyboardInputManager.prototype.restart = function (event) {
   event.preventDefault();
   this.emit("restart");
+};
+
+KeyboardInputManager.prototype.easyChoosed = function (event) {
+  event.preventDefault();
+  this.emit("easyChoosed");
+};
+
+KeyboardInputManager.prototype.hardChoosed = function (event) {
+  event.preventDefault();
+  this.emit("hardChoosed");
 };
 
 KeyboardInputManager.prototype.bindButtonPress = function (selector, fn) {

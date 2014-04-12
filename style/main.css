@@ -50,7 +50,7 @@ h1.title {
   font-weight: bold;
   margin: 0;
   display: block;
-  float: left; }
+  float: none; }
 
 @-webkit-keyframes move-up {
   0% {
@@ -148,21 +148,6 @@ hr {
 .container {
   width: 500px;
   margin: 0 auto; }
-  
-.game-nandu {
-  display: none;
-  position: absolute;
-  top: 20px;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: rgba(238, 228, 218, 0.73);
-  z-index: 101;
-  width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 100px;
-  text-align: center; }
 
 @-webkit-keyframes fade-in {
   0% {
@@ -220,6 +205,27 @@ hr {
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
+.game-nandu {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(238, 228, 218, 0.9);
+  z-index: 99;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 100px;
+  text-align: center; }
+  
+.nandu-button {
+	width: 150px; 
+	text-align: center; 
+	margin-left: auto; 
+	margin-right:auto; }
+  
 .game-message {
   display: none;
   position: absolute;
@@ -666,6 +672,20 @@ hr {
   line-height: 42px;
   margin-bottom: 0; }
 
+.easy , .hard{
+  display: inline-block;
+  background: #8f7a66;
+  border-radius: 3px;
+  padding: 0 20px;
+  text-decoration: none;
+  color: #f9f6f2;
+  height: 40px;
+  line-height: 42px;
+  cursor: pointer;
+  display: block;
+  text-align: center;
+  float: none; }
+  
 .restart-button {
   display: inline-block;
   background: #8f7a66;
@@ -712,6 +732,12 @@ hr {
 	top: 0;
 	width: auto;
     padding-top: 50px; }
+	
+  .nandu-button {
+	width: 50%; 
+	text-align: center; 
+	margin-left: auto; 
+	margin-right:auto; }
 
   .score-container, .best-container {
     margin-top: 0;
@@ -985,92 +1011,3 @@ hr {
     display: block;
     margin: 0 auto;
     margin-bottom: 20px; } }
-.pp-donate button {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border: none;
-  font: inherit;
-  color: inherit;
-  display: inline-block;
-  background: #8f7a66;
-  border-radius: 3px;
-  padding: 0 20px;
-  text-decoration: none;
-  color: #f9f6f2;
-  height: 40px;
-  line-height: 42px;
-  cursor: pointer; }
-  .pp-donate button img {
-    vertical-align: -4px;
-    margin-right: 8px; }
-
-.btc-donate {
-  position: relative;
-  margin-left: 10px;
-  display: inline-block;
-  background: #8f7a66;
-  border-radius: 3px;
-  padding: 0 20px;
-  text-decoration: none;
-  color: #f9f6f2;
-  height: 40px;
-  line-height: 42px;
-  cursor: pointer; }
-  .btc-donate img {
-    vertical-align: -4px;
-    margin-right: 8px; }
-  .btc-donate a {
-    color: #f9f6f2;
-    text-decoration: none;
-    font-weight: normal; }
-  .btc-donate .address {
-    cursor: auto;
-    position: absolute;
-    width: 340px;
-    right: 50%;
-    margin-right: -170px;
-    padding-bottom: 7px;
-    top: -30px;
-    opacity: 0;
-    pointer-events: none;
-    -webkit-transition: 400ms ease;
-    -moz-transition: 400ms ease;
-    transition: 400ms ease;
-    -webkit-transition-property: top, opacity;
-    -moz-transition-property: top, opacity;
-    transition-property: top, opacity; }
-    .btc-donate .address:after {
-      position: absolute;
-      border-top: 10px solid #bbada0;
-      border-right: 7px solid transparent;
-      border-left: 7px solid transparent;
-      content: "";
-      bottom: 0px;
-      left: 50%;
-      margin-left: -7px; }
-    .btc-donate .address code {
-      background-color: #bbada0;
-      padding: 10px 15px;
-      width: 100%;
-      border-radius: 3px;
-      line-height: 1;
-      font-weight: normal;
-      font-size: 15px;
-      font-family: Consolas, "Liberation Mono", Courier, monospace;
-      text-align: center; }
-  .btc-donate:hover .address, .btc-donate .address:hover .address {
-    opacity: 1;
-    top: -45px;
-    pointer-events: auto; }
-  @media screen and (max-width: 480px) {
-    .btc-donate {
-      width: 120px; }
-      .btc-donate .address {
-        margin-right: -150px;
-        width: 300px; }
-        .btc-donate .address code {
-          font-size: 13px; }
-        .btc-donate .address:after {
-          left: 50%;
-          bottom: 2px; } }

@@ -16,35 +16,37 @@
 
   <meta property="og:title" content="2048 game"/>
   <meta property="og:site_name" content="2048 game"/>
- 
 </head>
-<body>
-  <div class="game-nandu" id="nanduChoose">
-    <p>请选择游戏难度：</p><br />
-    <input id="easy" type="button" value="简单模式" onclick="nanduChoose(1)"/>
-      <br /><br />
-    <input id="hard" type="button" value="困难模式" onclick="nanduChoose(2)"/>
-  </div>
-  <div class="container" id="mainDiv" >
+<body> 
+  <div class="container">
 	<p style="color:#A20000";>本次更新：新增<strong>难度选择</strong>功能。</p>
 	<p>◎本版本全程自动存档。</p>
+	<hr>	
 	<p>最新<strong>安卓版</strong>下载地址：</p>
 	<a href="http://vdisk.weibo.com/s/vqWG6vgngbkC">http://vdisk.weibo.com/s/vqWG6vgngbkC</a>
 	<hr>
     <div class="heading">
       <h1 class="title">2048古剑主角版</h1>
-	  <br><br>
+	  <p style="font-weight:bold; float:left;" id="nandu"></p>
       <div class="scores-container">
         <div class="score-container">0</div>
         <div class="best-container">0</div>
       </div>
-    </div>
-	<p style="font-weight:bold;" id="nandu"></p>
+    </div>	
+	<br>
     <div class="above-game">
       <a class="restart-button">重新开始</a>
     </div>
 
     <div class="game-container">
+	  <div class="game-nandu" id="nanduChoose">
+		<div style="width:150px; text-align:center; margin-left:auto; margin-right:auto;" >
+			<p>请选择游戏难度：</p><br />
+			<a class="easy">普通模式</a>
+			<br><br>
+			<a class="hard">困难模式</a>
+		</div>
+	  </div>
       <div class="game-message">
         <p></p>
 		<br>

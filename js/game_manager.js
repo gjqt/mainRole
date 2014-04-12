@@ -2,16 +2,10 @@
 var pause = false;
 var nandu = 1;
 
-function nanduChoose(model) {
-    var mainDiv = document.getElementById("mainDiv");
-    mainDiv.style.display = "block";
+function gamePause() {
     var nanduDiv = document.getElementById("nanduChoose");
-    nanduDiv.style.display = "none";
-	nandu = model;
-	window.localStorage.setItem("nandu", nandu);
-	
-    pause = false;
-	location.reload();
+    nanduDiv.style.display = "block";
+    pause = true;
 }
 
 function GameManager(size, InputManager, Actuator, StorageManager) {
@@ -24,6 +18,8 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
 
   this.inputManager.on("move", this.move.bind(this));
   this.inputManager.on("restart", this.restart.bind(this));
+  this.inputManager.on("easyChoosed", this.easyChoosed.bind(this));
+  this.inputManager.on("hardChoosed", this.hardChoosed.bind(this));
   
   if (window.localStorage.hasOwnProperty("maxValue")) {
 	maxValue = window.localStorage.getItem("maxValue");
@@ -33,28 +29,36 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
 	nandu = window.localStorage.getItem("nandu");
   }
   else {
-	this.pause();
+	gamePause();
   }
-
+  
   this.setup();
 }
 
 // Restart the game
 GameManager.prototype.restart = function () {
   maxValue = 2;
-  window.localStorage.setItem("maxValue", 2); 
-  this.pause();
-  this.storageManager.clearGameState();
-  this.actuator.continueGame(); // Clear the game won/lost message
-  this.setup(); 
+  window.localStorage.setItem("maxValue",2);
+  this.actuator.continueGame();   // Clear the game won/lost message
+  setTimeout("gamePause()",10);
 };
 
-GameManager.prototype.pause = function () {
-    var mainDiv = document.getElementById("mainDiv");
-    mainDiv.style.display = "none";
+GameManager.prototype.easyChoosed = function () {
+	this.nanduChoose(1);
+};
+
+GameManager.prototype.hardChoosed = function () {
+	this.nanduChoose(2); 
+};
+
+GameManager.prototype.nanduChoose = function (model) {
     var nanduDiv = document.getElementById("nanduChoose");
-    nanduDiv.style.display = "block";
-    pause = true;
+    nanduDiv.style.display = "none";
+    nandu = model;
+    window.localStorage.setItem("nandu", nandu);
+    pause = false;
+    this.storageManager.clearGameState();
+    this.setup(); 
 };
 
 // Return true if the game is lost, or has won and the user hasn't kept playing
@@ -70,7 +74,7 @@ GameManager.prototype.isGameTerminated = function () {
 GameManager.prototype.setup = function () {
   var currentNanDu = document.getElementById("nandu");
   if (nandu == 1)
-	currentNanDu.innerHTML = "【简单模式】";
+	currentNanDu.innerHTML = "【普通模式】";
   else
 	currentNanDu.innerHTML = "【困难模式】";
 	
