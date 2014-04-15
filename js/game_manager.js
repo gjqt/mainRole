@@ -37,10 +37,11 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
 
 // Restart the game
 GameManager.prototype.restart = function () {
-  maxValue = 2;
-  window.localStorage.setItem("maxValue",2);
-  this.actuator.continueGame();   // Clear the game won/lost message
-  setTimeout("gamePause()",10);
+  if(confirm("确定要重新开始吗？")){
+    maxValue = 2;
+    window.localStorage.setItem("maxValue",2);
+    this.actuator.continueGame();   // Clear the game won/lost message
+    setTimeout("gamePause()",10);}
 };
 
 GameManager.prototype.easyChoosed = function () {
@@ -138,8 +139,8 @@ GameManager.prototype.addRandomTile = function () {
 
 // Sends the updated grid to the actuator
 GameManager.prototype.actuate = function () {
-  if (this.storageManager.getBestScore() < this.score) {
-    this.storageManager.setBestScore(this.score);
+  if (this.storageManager.getBestScore(nandu) < this.score) {
+    this.storageManager.setBestScore(this.score, nandu);
   }
 
   // Clear the state when the game is over (game over only, not win)
@@ -153,7 +154,7 @@ GameManager.prototype.actuate = function () {
     score:      this.score,
     over:       this.over,
     won:        this.won,
-    bestScore:  this.storageManager.getBestScore(),
+    bestScore:  this.storageManager.getBestScore(nandu),
     terminated: this.isGameTerminated()
   });
 
